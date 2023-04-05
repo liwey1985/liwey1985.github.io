@@ -6,16 +6,18 @@
   <meta name="keywords" content="">
   <meta name="description" content="日常笔记">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="博客使用 Hexo! 构建。更多细节可查阅 Hexo 的详细 文档 .  使用的主题为 3-hex。 更多使用方法查阅作者个人 blog 的相关文章。 本文主要摘录上面两者中常用的使用方法，用以备忘。 Hexo 命令新建文章$ hexo new &quot;My New Post&quot;  More info: Writing 本地运行服务$ hexo server  More info: S">
+<meta name="description" content="linux 下网络函数缺少 htonll 和 ntohll 这两个方法，需要自己补上实现。实现如下：  #ifdef Q_OS_LINUX #include &lt;netinet&#x2F;in.h&gt; #include &lt;stdint.h&gt;  inline uint64_t htonll(uint64_t hostlonglong) &amp;#123;     uint64_t return">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客使用及维护的说明">
-<meta property="og:url" content="https://eopc.top/2022/07/12/blog-usage/index.html">
+<meta property="og:title" content="一个 Qt 程序移植到 Linux 平台的记录">
+<meta property="og:url" content="https://eopc.top/2023/04/05/A-record-of-porting-the-qt-app-to-linux/index.html">
 <meta property="og:site_name" content="日常笔记">
-<meta property="og:description" content="博客使用 Hexo! 构建。更多细节可查阅 Hexo 的详细 文档 .  使用的主题为 3-hex。 更多使用方法查阅作者个人 blog 的相关文章。 本文主要摘录上面两者中常用的使用方法，用以备忘。 Hexo 命令新建文章$ hexo new &quot;My New Post&quot;  More info: Writing 本地运行服务$ hexo server  More info: S">
+<meta property="og:description" content="linux 下网络函数缺少 htonll 和 ntohll 这两个方法，需要自己补上实现。实现如下：  #ifdef Q_OS_LINUX #include &lt;netinet&#x2F;in.h&gt; #include &lt;stdint.h&gt;  inline uint64_t htonll(uint64_t hostlonglong) &amp;#123;     uint64_t return">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-12T15:49:11.908Z">
-<meta property="article:modified_time" content="2022-10-08T06:09:29.359Z">
+<meta property="article:published_time" content="2023-04-05T08:18:52.000Z">
+<meta property="article:modified_time" content="2023-04-05T13:13:37.771Z">
 <meta property="article:author" content="Li Wei">
+<meta property="article:tag" content="Qt">
+<meta property="article:tag" content="Linux适配">
 <meta name="twitter:card" content="summary">
 
 
@@ -112,7 +114,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(1)</small>
+                <small>(5)</small>
             
         </div>
     </li>
@@ -121,6 +123,24 @@
             <li>
                 <div data-rel="暂未分类">暂未分类
                     <small>(1)</small>
+                    
+                </div>
+            </li>
+        
+    
+        
+            <li>
+                <div data-rel="工作速记">工作速记
+                    <small>(1)</small>
+                    
+                </div>
+            </li>
+        
+    
+        
+            <li>
+                <div data-rel="开源库">开源库
+                    <small>(3)</small>
                     
                 </div>
             </li>
@@ -139,7 +159,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="1">
+<input type="hidden" id="yelog_site_posts_number" value="5">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -185,12 +205,76 @@
     <input id="tag-search" />
     <div class="tag-wrapper">
         
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编译</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>构建</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>libevent</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux适配</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>openssl</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Qt</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>zlib</a>
+            </li>
+        
     </div>
 
 </div>
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 工作速记 "
+           href="/2023/04/05/A-record-of-porting-the-qt-app-to-linux/"
+           data-tag="Qt,Linux适配"
+           data-author="" >
+            <span class="post-title" title="一个 Qt 程序移植到 Linux 平台的记录">一个 Qt 程序移植到 Linux 平台的记录</span>
+            <span class="post-date" title="2023-04-05 16:18:52">2023/04/05</span>
+        </a>
+        
+        
+        <a  class="全部文章 开源库 "
+           href="/2023/04/05/build-libevent/"
+           data-tag="编译,构建,libevent"
+           data-author="" >
+            <span class="post-title" title="开源库 libevent 的构建">开源库 libevent 的构建</span>
+            <span class="post-date" title="2023-04-05 15:40:55">2023/04/05</span>
+        </a>
+        
+        
+        <a  class="全部文章 开源库 "
+           href="/2023/04/05/build-openssl/"
+           data-tag="openssl,编译,构建"
+           data-author="" >
+            <span class="post-title" title="开源库 openssl 的构建">开源库 openssl 的构建</span>
+            <span class="post-date" title="2023-04-05 15:15:54">2023/04/05</span>
+        </a>
+        
+        
+        <a  class="全部文章 开源库 "
+           href="/2023/04/05/build-zlib/"
+           data-tag="编译,构建,zlib"
+           data-author="" >
+            <span class="post-title" title="开源库 zlib 的构建">开源库 zlib 的构建</span>
+            <span class="post-date" title="2023-04-05 12:03:54">2023/04/05</span>
+        </a>
         
         
         <a  class="全部文章 暂未分类 "
