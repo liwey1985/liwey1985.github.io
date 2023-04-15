@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>开源库 zlib 的构建 | 日常笔记</title>
-  <meta name="keywords" content=" 编译 , 构建 , zlib ">
-  <meta name="description" content="开源库 zlib 的构建 | 日常笔记">
+  <title>编译 cef | 日常笔记</title>
+  <meta name="keywords" content=" 编译 , 构建 , cef ">
+  <meta name="description" content="编译 cef | 日常笔记">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="编译环境：Debian10cef版本：5060  设置 cef 构建根目录, 如 cef_build, 并将该目录设置为环境变量 CEF_BUILD_ROOT_DIR  export CEF_BUILD_ROOT_DIR&#x3D;$(realpath -e ~&#x2F;Workspace&#x2F;cef_build)">
 <meta property="og:type" content="article">
@@ -317,9 +317,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-build-zlib" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-build-cef" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">开源库 zlib 的构建</h1>
+        <h1 class="article-title">编译 cef</h1>
     
     <div class="article-meta">
         
@@ -341,14 +341,14 @@
             
             <a class="color3">构建</a>
             
-            <a class="color5">zlib</a>
+            <a class="color4">cef</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2023-04-05 21:13:46'>2023-04-05 12:03</time>
+            发布时间 : <time class="date" title='最后更新: 2023-04-15 17:35:49'>2023-04-15 17:02</time>
         
     </div>
     <div class="article-meta">
@@ -397,16 +397,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>官网：<a target="_blank" rel="noopener" href="http://www.zlib.net/">http://www.zlib.net/</a><br>源码：<a target="_blank" rel="noopener" href="https://github.com/madler/zlib">https://github.com/madler/zlib</a><br>版本：1.2.13</p>
-<p>假定源码目录为 ZLIB_SRC_DIR</p>
-<p>Linux 下构建：</p>
-<pre><code class="shell">cd $ZLIB_SRC_DIR
-mkdir build &amp;&amp; cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=$ZLIB_SRC_DIR/build/installed
-make &amp;&amp; make test
-make install
+        <p>编译环境：Debian10<br>cef版本：5060</p>
+<ol>
+<li>设置 cef 构建根目录, 如 cef_build, 并将该目录设置为环境变量 <code>CEF_BUILD_ROOT_DIR</code></li>
+</ol>
+<pre><code class="bash">export CEF_BUILD_ROOT_DIR=$(realpath -e ~/Workspace/cef_build)
 </code></pre>
-<p>构建完成后，可以发现 installed&#x2F;lib 下面同时包含有静态和动态库</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 欢迎对文章中的观点及引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 li.wey1985@gmail.com </span>
