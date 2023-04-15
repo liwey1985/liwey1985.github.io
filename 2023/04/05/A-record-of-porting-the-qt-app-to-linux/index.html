@@ -6,18 +6,19 @@
   <meta name="keywords" content=" Qt , Linux适配 ">
   <meta name="description" content="一个 Qt 程序移植到 Linux 平台的记录 | 日常笔记">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="linux 下网络函数缺少 htonll 和 ntohll 这两个方法，需要自己补上实现。实现如下：  #ifdef Q_OS_LINUX #include &lt;netinet&#x2F;in.h&gt; #include &lt;stdint.h&gt;  inline uint64_t htonll(uint64_t hostlonglong) &amp;#123;     uint64_t return">
+<meta name="description" content="编译环境：Debian10cef版本：5060参考来源：  https:&#x2F;&#x2F;bitbucket.org&#x2F;chromiumembedded&#x2F;cef&#x2F;wiki&#x2F;MasterBuildQuickStart.md  设置 cef 构建根目录, 如 cef_build, 并将该目录设置为环境变量 CEF_BUILD_ROOT_DIR我这里使用的是 ~&#x2F;Workspace&#x2F;cef_build，该目录需要使用绝">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一个 Qt 程序移植到 Linux 平台的记录">
-<meta property="og:url" content="https://eopc.top/2023/04/05/A-record-of-porting-the-qt-app-to-linux/index.html">
+<meta property="og:title" content="编译 cef">
+<meta property="og:url" content="https://eopc.top/2023/04/15/build-cef/index.html">
 <meta property="og:site_name" content="日常笔记">
-<meta property="og:description" content="linux 下网络函数缺少 htonll 和 ntohll 这两个方法，需要自己补上实现。实现如下：  #ifdef Q_OS_LINUX #include &lt;netinet&#x2F;in.h&gt; #include &lt;stdint.h&gt;  inline uint64_t htonll(uint64_t hostlonglong) &amp;#123;     uint64_t return">
+<meta property="og:description" content="编译环境：Debian10cef版本：5060参考来源：  https:&#x2F;&#x2F;bitbucket.org&#x2F;chromiumembedded&#x2F;cef&#x2F;wiki&#x2F;MasterBuildQuickStart.md  设置 cef 构建根目录, 如 cef_build, 并将该目录设置为环境变量 CEF_BUILD_ROOT_DIR我这里使用的是 ~&#x2F;Workspace&#x2F;cef_build，该目录需要使用绝">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-04-05T08:18:52.000Z">
-<meta property="article:modified_time" content="2023-04-05T13:17:30.027Z">
+<meta property="article:published_time" content="2023-04-15T09:02:04.000Z">
+<meta property="article:modified_time" content="2023-04-15T23:39:05.611Z">
 <meta property="article:author" content="Li Wei">
-<meta property="article:tag" content="Qt">
-<meta property="article:tag" content="Linux适配">
+<meta property="article:tag" content="编译">
+<meta property="article:tag" content="构建">
+<meta property="article:tag" content="cef">
 <meta name="twitter:card" content="summary">
 
 
@@ -363,17 +364,6 @@
         </span>
         
         
-        <span class="top-comment" title="跳转至评论区">
-            <a href="#comments">
-                评论:<span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </a>
-        </span>
-        
     </div>
     
     <div class="toc-ref">
@@ -452,33 +442,12 @@ inline uint64_t ntohll(uint64_t netlonglong)
 </ol>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 欢迎对文章中的观点及引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 li.wey1985@gmail.com </span>
+       <hr><span style="font-style: italic;color: gray;"> 欢迎对文章中的观点及引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以邮件至 li.wey1985@gmail.com </span>
     </div>
 </article>
 
 
 
-
-
-    <div id="comments"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-
-<script type="text/javascript">
-    $.getScript('/js/gitalk.js', function () {
-        var gitalk = new Gitalk({
-            clientID: 'bcd2ac739211875f0791',
-            clientSecret: '3d23151251b93a79b375800db81736a716ba074e',
-            repo: 'liwey1985.github.io',
-            owner: 'liwey1985',
-            admin: ['liwey1985'],
-            id: decodeURI(location.pathname),
-            distractionFreeMode: 'false',
-            language: 'zh-CN',
-            perPage: parseInt('10',10)
-        })
-        gitalk.render('comments')
-    })
-</script>
 
 
 
