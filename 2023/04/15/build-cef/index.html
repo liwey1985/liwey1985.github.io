@@ -14,7 +14,7 @@
 <meta property="og:description" content="编译环境：Debian10cef版本：5060  设置 cef 构建根目录, 如 cef_build, 并将该目录设置为环境变量 CEF_BUILD_ROOT_DIR我这里使用的是 ~&#x2F;Workspace&#x2F;cef_build，该目录需要使用绝对路径。如果使用下面命令，则相对路径和绝对路径均可。（按实际替换命令中的 ~&#x2F;Workspace&#x2F;cef_build）  export CEF_BUILD_R">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-15T09:02:04.000Z">
-<meta property="article:modified_time" content="2023-04-15T10:16:44.230Z">
+<meta property="article:modified_time" content="2023-04-15T10:35:39.842Z">
 <meta property="article:author" content="Li Wei">
 <meta property="article:tag" content="编译">
 <meta property="article:tag" content="构建">
@@ -348,7 +348,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2023-04-15 18:16:44'>2023-04-15 17:02</time>
+            发布时间 : <time class="date" title='最后更新: 2023-04-15 18:35:39'>2023-04-15 17:02</time>
         
     </div>
     <div class="article-meta">
@@ -423,6 +423,26 @@ sudo ./install-build-deps.sh --no-arm --no-chromeos-fonts --no-nacl
 </ol>
 <pre><code class="bash">cd $CEF_BUILD_ROOT_DIR
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+</code></pre>
+<ol start="5">
+<li>添加工具包到环境变量 <code>PATH</code></li>
+</ol>
+<pre><code class="bash">export PATH=$CEF_BUILD_ROOT_DIR/depot_tools:$PATH
+</code></pre>
+<ol start="6">
+<li>下载自动化脚本 <code>automate-git.py</code></li>
+</ol>
+<pre><code class="bash">cd $CEF_BUILD_ROOT_DIR/automate
+wget https://bitbucket.org/chromiumembedded/cef/raw/master/tools/automate/automate-git.py
+</code></pre>
+<ol start="7">
+<li>创建拉取（更新）代码的脚本</li>
+</ol>
+<pre><code class="bash">echo &#39;#!/bin/bash&#39; &gt; $CEF_BUILD_ROOT_DIR/chromium_git/update.sh
+echo &#39;python ../automate/automate-git.py --download-dir=$CEF_BUILD_ROOT_DIR/chromium_git --depot-tools-dir=$CEF_BUILD_ROOT_DIR/depot_tools --branch=5060 --no-distrib --no-build&#39; &gt;&gt; $CEF_BUILD_ROOT_DIR/chromium_git/update.sh
+cd $CEF_BUILD_ROOT_DIR/chromium_git
+chmod 755 update.sh
+./update.sh
 </code></pre>
 
       
