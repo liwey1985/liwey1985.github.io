@@ -14,7 +14,7 @@
 <meta property="og:description" content="编译环境：Debian10cef版本：5060参考来源：https:&#x2F;&#x2F;bitbucket.org&#x2F;chromiumembedded&#x2F;cef&#x2F;wiki&#x2F;MasterBuildQuickStart.md  设置 cef 构建根目录, 如 cef_build, 并将该目录设置为环境变量 CEF_BUILD_ROOT_DIR我这里使用的是 ~&#x2F;Workspace&#x2F;cef_build，该目录需要使用绝对路">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-15T09:02:04.000Z">
-<meta property="article:modified_time" content="2023-04-15T23:56:22.720Z">
+<meta property="article:modified_time" content="2023-04-16T00:11:18.055Z">
 <meta property="article:author" content="Li Wei">
 <meta property="article:tag" content="编译">
 <meta property="article:tag" content="构建">
@@ -348,7 +348,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2023-04-16 07:56:22'>2023-04-15 17:02</time>
+            发布时间 : <time class="date" title='最后更新: 2023-04-16 08:11:18'>2023-04-15 17:02</time>
         
     </div>
     <div class="article-meta">
@@ -432,20 +432,26 @@ cd $CEF_BUILD_ROOT_DIR/chromium_git
 chmod 755 update.sh
 ./update.sh
 </code></pre>
+<blockquote>
 <p>注意：这一步注意机器上不要开太多占内存的程序，如果内存不够会失败，需要漫长的重新拉取代码的时间</p>
+</blockquote>
 <ol start="8">
 <li>设置环境变量 <code>GN_DEFINES</code></li>
 </ol>
 <pre><code class="bash">export GN_DEFINES=&quot;use_sysroot=true use_allocator=none symbol_level=0 blink_symbol_level=0 v8_symbol_level=0 is_cfi=false use_thin_lto=false ffmpeg_branding=Chrome proprietary_codecs=true&quot;
 </code></pre>
+<blockquote>
 <p>备注：这里使用了 <code>use_sysroot=true</code>， 后文的第 10 步是无法编译成功 cefclient 的。</p>
+</blockquote>
 <ol start="9">
 <li>运行 <code>cef_create_projects.sh</code> 脚本来生成 Ninja 工程</li>
 </ol>
 <pre><code class="bash">cd $CEF_BUILD_ROOT_DIR/chromium_git/chromium/src/cef
 ./cef_create_projects.sh
 </code></pre>
+<blockquote>
 <p>执行玩上面的命令后，会产生两个 ninja 工程目录分别到 <code>../out/Debug_GN_x64</code> 和 <code>../out/Release_GN_x64</code>。分别对应 <code>Debug</code> 和 <code>Release</code> 版本。在下一步骤中按需选择构建即可。</p>
+</blockquote>
 <ol start="10">
 <li>运行 <code>ninja</code> 开始构建</li>
 </ol>
