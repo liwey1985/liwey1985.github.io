@@ -6,18 +6,19 @@
   <meta name="keywords" content="">
   <meta name="description" content="日常笔记">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="linux 下网络函数缺少 htonll 和 ntohll 这两个方法，需要自己补上实现。实现如下：  #ifdef Q_OS_LINUX #include &lt;netinet&#x2F;in.h&gt; #include &lt;stdint.h&gt;  inline uint64_t htonll(uint64_t hostlonglong) &amp;#123;     uint64_t return">
+<meta name="description" content="编译环境：Debian10cef版本：5060参考来源：https:&#x2F;&#x2F;bitbucket.org&#x2F;chromiumembedded&#x2F;cef&#x2F;wiki&#x2F;MasterBuildQuickStart.md  设置 cef 构建根目录, 如 cef_build, 并将该目录设置为环境变量 CEF_BUILD_ROOT_DIR我这里使用的是 ~&#x2F;Workspace&#x2F;cef_build，该目录需要使用绝对路">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一个 Qt 程序移植到 Linux 平台的记录">
-<meta property="og:url" content="https://eopc.top/2023/04/05/A-record-of-porting-the-qt-app-to-linux/index.html">
+<meta property="og:title" content="编译 cef">
+<meta property="og:url" content="https://eopc.top/2023/04/15/build-cef/index.html">
 <meta property="og:site_name" content="日常笔记">
-<meta property="og:description" content="linux 下网络函数缺少 htonll 和 ntohll 这两个方法，需要自己补上实现。实现如下：  #ifdef Q_OS_LINUX #include &lt;netinet&#x2F;in.h&gt; #include &lt;stdint.h&gt;  inline uint64_t htonll(uint64_t hostlonglong) &amp;#123;     uint64_t return">
+<meta property="og:description" content="编译环境：Debian10cef版本：5060参考来源：https:&#x2F;&#x2F;bitbucket.org&#x2F;chromiumembedded&#x2F;cef&#x2F;wiki&#x2F;MasterBuildQuickStart.md  设置 cef 构建根目录, 如 cef_build, 并将该目录设置为环境变量 CEF_BUILD_ROOT_DIR我这里使用的是 ~&#x2F;Workspace&#x2F;cef_build，该目录需要使用绝对路">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-04-05T08:18:52.000Z">
-<meta property="article:modified_time" content="2023-04-05T13:17:30.027Z">
+<meta property="article:published_time" content="2023-04-15T09:02:04.000Z">
+<meta property="article:modified_time" content="2023-04-15T23:56:22.720Z">
 <meta property="article:author" content="Li Wei">
-<meta property="article:tag" content="Qt">
-<meta property="article:tag" content="Linux适配">
+<meta property="article:tag" content="编译">
+<meta property="article:tag" content="构建">
+<meta property="article:tag" content="cef">
 <meta name="twitter:card" content="summary">
 
 
